@@ -12,7 +12,10 @@ Widget textBox({
 }) {
   return Padding(
     padding: const EdgeInsets.all(8.0),
-    child: TextField(
+    child: TextFormField(
+      validator: (value) {
+        return value!.isEmpty?'This detail is mandatory !':null;
+      },
       maxLines: (isAddress)?4:1,
       keyboardType: (isPhone)?TextInputType.phone:TextInputType.text,
       controller: txtController,
@@ -31,6 +34,12 @@ Widget textBox({
           borderSide: BorderSide(
             color: orange,
             width: 2,
+          ),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.red.shade700,
+            width: 1,
           ),
         ),
       ),
