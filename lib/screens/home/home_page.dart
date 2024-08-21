@@ -162,7 +162,7 @@ class _HomePageState extends State<HomePage> {
           color: offWhite,
         ),
         onPressed: () {
-          if(formKey.currentState!.validate())
+          if(formKey.currentState!.validate() && fileImage!=null)
             {
               Navigator.of(context).pushNamed('/edu');
             }

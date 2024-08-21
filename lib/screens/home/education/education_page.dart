@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:resume_builder/screens/home/components/text_box.dart';
 import 'package:resume_builder/utils/globals.dart';
 
 import '../../../utils/colors.dart';
@@ -16,9 +17,14 @@ class _EducationPageState extends State<EducationPage> {
     return Scaffold(
       backgroundColor: offWhite,
       appBar: AppBar(
-        leading: IconButton(onPressed: () {
-          Navigator.of(context).pop();
-        }, icon:  Icon(Icons.arrow_back,color: offWhite,)),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: Icon(
+              Icons.arrow_back,
+              color: offWhite,
+            )),
         actions: [
           IconButton(
             onPressed: () {},
@@ -34,24 +40,77 @@ class _EducationPageState extends State<EducationPage> {
         ),
         backgroundColor: blue,
       ),
-
-      body: Column(
-        children: [
-          Text(txtName.text),
-          Text(txtAddress.text),
-          Text(txtPhone.text),
-          Text(txtEmail.text),
-          Text(txtDesignation.text),
-        ],
-      ),
-
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: orange,
-        child: Icon(
-          Icons.arrow_forward,
-          color: offWhite,
+      body: SingleChildScrollView(
+        child: Column(
+          children: List.generate(l1.length, (index) =>  Container(
+            margin: const EdgeInsets.all(10),
+            height: 300,
+            width: double.infinity,
+            decoration: const BoxDecoration(color: Colors.white),
+            child: Column(
+              children: [
+                textBox(
+                  isPhone: false,
+                  isAddress: false,
+                  label: 'University/School',
+                  hint: 'RK University',
+                  prefix: Icons.school,
+                  txtController: txtSchoolName,
+                ),
+                textBox(
+                  isPhone: false,
+                  isAddress: false,
+                  label: 'Degree or Course',
+                  hint: 'B.E in CS',
+                  prefix: Icons.workspace_premium,
+                  txtController: txtDegree,
+                ),
+                textBox(
+                  isPhone: false,
+                  isAddress: false,
+                  label: 'Grade or Percentage',
+                  hint: '8.9 SGPA',
+                  prefix: Icons.percent,
+                  txtController: txtGrade,
+                ),
+                textBox(
+                  isPhone: false,
+                  isAddress: false,
+                  label: 'Completed Year',
+                  hint: '2024',
+                  prefix: Icons.date_range_outlined,
+                  txtController: txtYear,
+                ),
+              ],
+            ),
+          ),),
         ),
-        onPressed: () {},
+      ),
+      floatingActionButton: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          FloatingActionButton(
+            backgroundColor: orange,
+            child: Icon(
+              Icons.add,
+              color: offWhite,
+            ),
+            onPressed: () {
+              setState(() {
+                l1.add(2);
+              });
+            },
+          ),
+          const SizedBox(height: 10,),
+          FloatingActionButton(
+            backgroundColor: orange,
+            child: Icon(
+              Icons.arrow_forward,
+              color: offWhite,
+            ),
+            onPressed: () {},
+          ),
+        ],
       ),
     );
   }
