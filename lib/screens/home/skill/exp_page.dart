@@ -1,17 +1,19 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:resume_builder/screens/home/components/text_box.dart';
 import 'package:resume_builder/utils/globals.dart';
 
 import '../../../utils/colors.dart';
 
-class EducationPage extends StatefulWidget {
-  const EducationPage({super.key});
+class ExpPage extends StatefulWidget {
+  const ExpPage({super.key});
 
   @override
-  State<EducationPage> createState() => _EducationPageState();
+  State<ExpPage> createState() => _ExpPageState();
 }
 
-class _EducationPageState extends State<EducationPage> {
+class _ExpPageState extends State<ExpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,14 +37,14 @@ class _EducationPageState extends State<EducationPage> {
           ),
         ],
         title: Text(
-          'Education Details',
+          'Experience',
           style: TextStyle(color: offWhite),
         ),
         backgroundColor: blue,
       ),
       body: SingleChildScrollView(
         child: Column(
-          children: List.generate(eduList.length, (index) =>  Container(
+          children: List.generate(expList.length, (index) =>  Container(
             margin: const EdgeInsets.all(10),
             height: 300,
             width: double.infinity,
@@ -52,34 +54,34 @@ class _EducationPageState extends State<EducationPage> {
                 textBox(
                   isPhone: false,
                   isAddress: false,
-                  label: 'University/School',
-                  hint: 'RK University',
-                  prefix: Icons.school,
-                  txtController: eduList[index]['school'],
+                  label: 'Company Name',
+                  hint: 'Microsoft Inc.',
+                  prefix: Icons.apartment,
+                  txtController: expList[index]['company'],
                 ),
                 textBox(
                   isPhone: false,
                   isAddress: false,
-                  label: 'Degree or Course',
-                  hint: 'B.E in CS',
-                  prefix: Icons.workspace_premium,
-                  txtController: eduList[index]['degree'],
+                  label: 'Job Role',
+                  hint: 'Project Leader',
+                  prefix: Icons.work_outline,
+                  txtController: expList[index]['role'],
                 ),
                 textBox(
                   isPhone: false,
                   isAddress: false,
-                  label: 'Grade or Percentage',
-                  hint: '8.9 SGPA',
-                  prefix: Icons.percent,
-                  txtController: eduList[index]['grade'],
+                  label: 'Starting From',
+                  hint: '10/08/2022',
+                  prefix: Icons.date_range,
+                  txtController: expList[index]['start'],
                 ),
                 textBox(
                   isPhone: false,
                   isAddress: false,
-                  label: 'Completed Year',
-                  hint: '2024',
-                  prefix: Icons.date_range_outlined,
-                  txtController: eduList[index]['year'],
+                  label: 'To Ending',
+                  hint: '22/08/2024',
+                  prefix: Icons.date_range,
+                  txtController: expList[index]['end'],
                 ),
               ],
             ),
@@ -98,11 +100,11 @@ class _EducationPageState extends State<EducationPage> {
             onPressed: () {
 
               setState(() {
-                eduList.add({
-                  'school' : TextEditingController(),
-                  'degree' : TextEditingController(),
-                  'year' : TextEditingController(),
-                  'grade' : TextEditingController(),
+                expList.add({
+                  'company' : TextEditingController(),
+                  'role' : TextEditingController(),
+                  'start' : TextEditingController(),
+                  'end' : TextEditingController(),
                 });
               });
             },
@@ -116,10 +118,10 @@ class _EducationPageState extends State<EducationPage> {
             ),
             onPressed: () {
               setState(() {
-                if(eduList.length>1)
-                  {
-                    eduList.removeAt(eduList.length-1);
-                  }
+                if(expList.length>1)
+                {
+                  expList.removeAt(expList.length-1);
+                }
               });
             },
           ),
@@ -131,7 +133,7 @@ class _EducationPageState extends State<EducationPage> {
               color: offWhite,
             ),
             onPressed: () {
-              Navigator.of(context).pushNamed('/skill');
+              Navigator.of(context).pushNamed('');
             },
           ),
         ],

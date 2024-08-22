@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:resume_builder/screens/home/education/education_page.dart';
+import 'package:resume_builder/screens/home/skill/exp_page.dart';
+import 'package:resume_builder/screens/home/skill/language_page.dart';
+import 'package:resume_builder/screens/home/skill/skill_page.dart';
 import '../screens/home/home_page.dart';
 
 Map<String, Widget Function(BuildContext context)> routes = {
   '/': (context) => const HomePage(),
   '/edu': (context) =>  const EducationPage(),
+  '/skill': (context) =>  const SkillPage(),
+  '/lang': (context) =>  const LanguagePage(),
+  '/exp': (context) =>  const ExpPage(),
 };
 
 
