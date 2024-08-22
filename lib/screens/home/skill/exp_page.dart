@@ -46,11 +46,12 @@ class _ExpPageState extends State<ExpPage> {
         child: Column(
           children: List.generate(expList.length, (index) =>  Container(
             margin: const EdgeInsets.all(10),
-            height: 300,
+            height: 320,
             width: double.infinity,
             decoration: const BoxDecoration(color: Colors.white),
             child: Column(
               children: [
+                Text("Experience ${index+1}"),
                 textBox(
                   isPhone: false,
                   isAddress: false,
