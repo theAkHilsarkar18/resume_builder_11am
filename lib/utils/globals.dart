@@ -75,6 +75,21 @@ List expList = [
   }
 ];
 
+// projects
+List projectList = [
+  {
+    'title': TextEditingController(text: "Whatsapp Clone"),
+    'description': TextEditingController(text: "I have created whatsapp clone app using firebase in flutter framework where i mentioned many features like send messages and get messages also performed CRUD operation in backend !"),
+    'start': TextEditingController(text: "20/11/2022"),
+    'end': TextEditingController(text: "19/03/2024"),
+  }
+];
+
+// about me and objective
+TextEditingController txtAboutMe = TextEditingController(text: "I am a highly analytical front-end developer with expertise in HTML, CSS, JavaScript, and various front-end frameworks. I develop dynamic and responsive interfaces that meet client needs. With a deep understanding of front-end development best practices, I am an innovative developer experienced in Angular and React.");
+TextEditingController txtObjective = TextEditingController(text: "Manage a simple project and be able to contribute to a more complex project as a team member. Program using one of at least two software languages to develop and evaluate software, hardware infrastructure, and network solutions to meet desired client outcomes.");
+
+
 
 const String defaultProfileImageUrl =
     "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";

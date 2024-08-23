@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:resume_builder/screens/home/education/education_page.dart';
+import 'package:resume_builder/screens/home/skill/about_objective.dart';
 import 'package:resume_builder/screens/home/skill/exp_page.dart';
 import 'package:resume_builder/screens/home/skill/language_page.dart';
+import 'package:resume_builder/screens/home/skill/projects_page.dart';
 import 'package:resume_builder/screens/home/skill/skill_page.dart';
+import 'package:resume_builder/screens/pdf_view.dart';
 import '../screens/home/home_page.dart';
 
 Map<String, Widget Function(BuildContext context)> routes = {
@@ -11,6 +14,9 @@ Map<String, Widget Function(BuildContext context)> routes = {
   '/skill': (context) =>  const SkillPage(),
   '/lang': (context) =>  const LanguagePage(),
   '/exp': (context) =>  const ExpPage(),
+  '/project': (context) =>  const ProjectsPage(),
+  '/about': (context) =>  const AboutObjectivePage(),
+  '/pdf': (context) =>  const PdfViewPage(),
 };
 
 

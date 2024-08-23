@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:resume_builder/screens/home/components/text_box.dart';
@@ -6,14 +5,14 @@ import 'package:resume_builder/utils/globals.dart';
 
 import '../../../utils/colors.dart';
 
-class ExpPage extends StatefulWidget {
-  const ExpPage({super.key});
+class ProjectsPage extends StatefulWidget {
+  const ProjectsPage({super.key});
 
   @override
-  State<ExpPage> createState() => _ExpPageState();
+  State<ProjectsPage> createState() => _ProjectsPageState();
 }
 
-class _ExpPageState extends State<ExpPage> {
+class _ProjectsPageState extends State<ProjectsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,36 +36,36 @@ class _ExpPageState extends State<ExpPage> {
           ),
         ],
         title: Text(
-          'Experience',
+          'Projects',
           style: TextStyle(color: offWhite),
         ),
         backgroundColor: blue,
       ),
       body: SingleChildScrollView(
         child: Column(
-          children: List.generate(expList.length, (index) =>  Container(
+          children: List.generate(projectList.length, (index) =>  Container(
             margin: const EdgeInsets.all(10),
-            height: 320,
+            height: 380,
             width: double.infinity,
             decoration: const BoxDecoration(color: Colors.white),
             child: Column(
               children: [
-                Text("Experience ${index+1}"),
+                Text("Project ${index+1}"),
                 textBox(
                   isPhone: false,
                   isAddress: false,
-                  label: 'Company Name',
-                  hint: 'Microsoft Inc.',
-                  prefix: Icons.apartment,
-                  txtController: expList[index]['company'],
+                  label: 'Project Title',
+                  hint: 'Chat App with Firebase',
+                  prefix: Icons.task_outlined,
+                  txtController: projectList[index]['title'],
                 ),
                 textBox(
                   isPhone: false,
-                  isAddress: false,
-                  label: 'Job Role',
-                  hint: 'Project Leader',
-                  prefix: Icons.work_outline,
-                  txtController: expList[index]['role'],
+                  isAddress: true,
+                  label: 'Description',
+                  hint: 'Project Description',
+                  prefix: Icons.description_outlined,
+                  txtController: projectList[index]['description'],
                 ),
                 textBox(
                   isPhone: false,
@@ -101,9 +100,9 @@ class _ExpPageState extends State<ExpPage> {
             onPressed: () {
 
               setState(() {
-                expList.add({
-                  'company' : TextEditingController(),
-                  'role' : TextEditingController(),
+                projectList.add({
+                  'title' : TextEditingController(),
+                  'description' : TextEditingController(),
                   'start' : TextEditingController(),
                   'end' : TextEditingController(),
                 });
@@ -119,9 +118,9 @@ class _ExpPageState extends State<ExpPage> {
             ),
             onPressed: () {
               setState(() {
-                if(expList.length>1)
+                if(projectList.length>1)
                 {
-                  expList.removeAt(expList.length-1);
+                  projectList.removeAt(projectList.length-1);
                 }
               });
             },
@@ -134,7 +133,7 @@ class _ExpPageState extends State<ExpPage> {
               color: offWhite,
             ),
             onPressed: () {
-              Navigator.of(context).pushNamed('/project');
+              Navigator.of(context).pushNamed('/about');
             },
           ),
         ],
