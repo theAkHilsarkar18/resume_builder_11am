@@ -99,4 +99,4 @@ String gender = "Male";
 // package --> class object
 // 1. create a object and declare variable for File.
 ImagePicker imagePicker = ImagePicker();
-File? fileImage;
+  File? fileImage;
